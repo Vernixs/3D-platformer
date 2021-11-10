@@ -27,7 +27,6 @@ public class Charactercontroller : MonoBehaviour
     public float Stamina = 100.0f;
     public float MaxStamina = 100.0f;
 
-    private float float
 
 
     void Start()
