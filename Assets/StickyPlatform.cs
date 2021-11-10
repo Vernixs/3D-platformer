@@ -15,7 +15,7 @@ public class StickyPlatform : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-      if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             collision.transform.parent = null;
         }
