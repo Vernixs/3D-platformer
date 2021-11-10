@@ -6,9 +6,6 @@ public class Charactercontroller : MonoBehaviour
 {
 
     //Movement code and jumping
-
-    //moving variables
-
     public float maxSpeed;
     public float normalSpeed = 10.0f;
     public float sprintSpeed = 20.0f;
