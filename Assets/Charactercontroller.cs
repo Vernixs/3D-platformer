@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charactercontroller : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
 
     //Movement code and jumping
