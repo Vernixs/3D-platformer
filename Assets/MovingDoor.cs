@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingDoor : MonoBehaviour
 {
-    public bool isOpne = false;
+    public bool isOpen = false;
 
     public Transform door;
     public Transform startingPoint;
@@ -18,7 +18,7 @@ public class MovingDoor : MonoBehaviour
  
     private void Update()
     {
-        if (isOpne == true)
+        if (isOpen == true)
         {
             door.position = Vector3.MoveTowards(door.position, endingPoint.position, Time.deltaTime);
         }
