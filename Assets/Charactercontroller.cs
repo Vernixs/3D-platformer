@@ -27,6 +27,13 @@ public class Charactercontroller : MonoBehaviour
     public LayerMask groundLayer;
     public float jumpForce = 300.0f;
 
+    //teleport
+
+    public float teleport = 1.0f;
+    public float cooldown = 2.0f;
+    float cooldownTimer;
+    bool canTeleport = true;
+
 
     void Start()
     {
@@ -88,9 +95,36 @@ public class Charactercontroller : MonoBehaviour
             myRigidBody.AddForce(transform.up * jumpForce);
         }
 
+        //Teleport
+        if (Input.GetKeyDown(KeyCode.E) && canTeleport == true)
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
+            if (Physics.Raycast(transform.position, fwd, 10))
+            {
+                print("TP blocked");
+            }
+            else
+            {
+                canTeleport = false;
+                transform.position += transform.forward * teleport;
+                print("TP successful");
+            }
+        }
+        else if (canTeleport == false)
+        {
 
-        Debug.Log(camRotation);
+            if (cooldownTimer > cooldown )
+            {
+                canTeleport = true;
+                cooldownTimer = 0.0f;
+               
+            }
+            else
+            {
+                cooldownTimer += Time.deltaTime;
+            }
+        }
 
     }
 }
