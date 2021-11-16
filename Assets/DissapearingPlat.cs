@@ -13,16 +13,10 @@ public class DissapearingPlat: MonoBehaviour
     bool isInvisible = true;
     bool touchy = false;
 
-    public GameObject obj;
-    private bool canFade;
-    private Color alphaCoLor;
-    private float timeTofade = 1.0f;
 
     public void Start()
     {
-        canFade = false;
-        alphaCoLor = obj.GetComponent<MeshRenderer>().material.color;
-        alphaCoLor.a = 0;
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -34,10 +28,6 @@ public class DissapearingPlat: MonoBehaviour
     }
     private void Update()
     {
-        if (canFade)
-        {
-            obj.GetComponent<MeshRenderer>().material.color = Color.Lerp(obj.GetComponent<MeshRenderer>().material.color, alphaCoLor, timeTofade * Time.deltaTime);
-        }
 
         if (isInvisible == false)
         {
