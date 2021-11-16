@@ -6,13 +6,24 @@ public class DissapearingPlat: MonoBehaviour
 {
 
     public float cooldown = 2.0f;
+
     float cooldownTimer;
     float timeVisible = 0.0f;
     public float duration = 3.0f;
     bool isInvisible = true;
     bool touchy = false;
 
+    public GameObject obj;
+    private bool canFade;
+    private Color alphaCoLor;
+    private float timeTofade = 1.0f;
 
+    public void Start()
+    {
+        canFade = false;
+        alphaCoLor = obj.GetComponent<MeshRenderer>().material.color;
+        alphaCoLor.a = 0;
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -23,13 +34,18 @@ public class DissapearingPlat: MonoBehaviour
     }
     private void Update()
     {
+        if (canFade)
+        {
+            obj.GetComponent<MeshRenderer>().material.color = Color.Lerp(obj.GetComponent<MeshRenderer>().material.color, alphaCoLor, timeTofade * Time.deltaTime);
+        }
+
         if (isInvisible == false)
         {
             if (cooldownTimer > cooldown)
             {
                 touchy = false;
                 isInvisible = true;
-                gameObject.GetComponent<BoxCollider>().enabled = true;
+                gameObject.SetActive(true);
                 cooldownTimer = 0.0f;
             }
             else
@@ -44,7 +60,7 @@ public class DissapearingPlat: MonoBehaviour
             
             if (timeVisible > duration)
             {
-                gameObject.GetComponent<BoxCollider>().enabled = false;
+                gameObject.SetActive(false);
                 isInvisible = false;
                 timeVisible = 0.0f;
             }
