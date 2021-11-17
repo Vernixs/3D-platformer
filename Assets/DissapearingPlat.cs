@@ -60,7 +60,7 @@ public class DissapearingPlat: MonoBehaviour
 
             }
         }
-        Debug.Log(isInvisible);
+
     }
 
 }

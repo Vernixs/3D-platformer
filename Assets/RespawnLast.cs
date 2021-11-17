@@ -5,6 +5,9 @@ using UnityEngine;
 public class RespawnLast : MonoBehaviour
 {
     Vector3 lastPosition;
+ 
+
+ 
 
     private void OnCollisionStay(Collision collision)
     {
@@ -13,10 +16,16 @@ public class RespawnLast : MonoBehaviour
             lastPosition = collision.transform.position;
         }
 
+        if (collision.gameObject.tag == "Death")
+        {
+            Vector3 newPosition = lastPosition;
+
+        }
+
     }
 
     private void Update()
     {
-        Debug.Log(lastPosition);
+
     }
 }
