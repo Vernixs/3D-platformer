@@ -22,10 +22,15 @@ public class RespawnLast : MonoBehaviour
 
         }
 
+
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider col)
     {
+        if (col.gameObject.tag == "Player")
+        {
 
+        }
     }
+
 }
