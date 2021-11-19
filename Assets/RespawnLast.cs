@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnLast : MonoBehaviour
 {
-    Vector3 lastPosition;
+    public Vector3 lastPosition;
  
 
  
@@ -16,21 +16,6 @@ public class RespawnLast : MonoBehaviour
             lastPosition = collision.transform.position;
         }
 
-        if (collision.gameObject.tag == "Death")
-        {
-            Vector3 newPosition = lastPosition;
-
-        }
-
-
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-
-        }
     }
 
 }

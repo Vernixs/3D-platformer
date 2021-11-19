@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
+    public RespawnLast rl;
 
+    public GameObject player;
 
-    public GameObject Player;
-    public Transform SpawnPoint;
+    private void Start()
+    {
+        rl = GameObject.Find("floor").GetComponent<RespawnLast>();
+    }
+
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
         {
-            Player.transform.position = SpawnPoint.transform.position;
+            player.transform.position = rl.lastPosition;
         }
     }
 }
