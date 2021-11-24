@@ -34,6 +34,9 @@ public class Charactercontroller : MonoBehaviour
     float cooldownTimer;
     bool canTeleport = true;
 
+    //animation
+
+    Animator myAnim;
 
     void Start()
     {
@@ -41,6 +44,7 @@ public class Charactercontroller : MonoBehaviour
         cam = GameObject.Find("Main Camera");
         myRigidBody = GetComponent<Rigidbody>();
         sprintTimer = maxSprint;
+        myAnim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -92,6 +96,7 @@ public class Charactercontroller : MonoBehaviour
 
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
+            myAnim.SetTrigger("jumped");
             myRigidBody.AddForce(transform.up * jumpForce);
         }
 
@@ -125,6 +130,11 @@ public class Charactercontroller : MonoBehaviour
                 cooldownTimer += Time.deltaTime;
             }
         }
+
+        //animation
+        myAnim.SetFloat("speed", newVelocity.magnitude);
+        myAnim.SetBool("isOnGround", isOnGround);
+        
 
     }
 }
