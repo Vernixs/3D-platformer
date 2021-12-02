@@ -133,7 +133,7 @@ public class Charactercontroller : MonoBehaviour
 
         //animation
         myAnim.SetFloat("speed", newVelocity.magnitude);
-        myAnim.SetBool("isOnGround", isOnGround);
+
         
 
     }

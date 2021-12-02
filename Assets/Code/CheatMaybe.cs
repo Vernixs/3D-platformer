@@ -8,9 +8,9 @@ public class CheatMaybe : MonoBehaviour
     public GameObject player;
     public Transform spawnPoint;
 
-    private void OnCollisionEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
-        if (col.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             player.transform.position = spawnPoint.transform.position;
         }
